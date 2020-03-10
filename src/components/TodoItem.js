@@ -1,17 +1,12 @@
 import React from "react";
 
-export default function TodoItem(props) {
-  function handleClick() {
-    console.log("click");
-    props.item.completed = true;
-  }
-
+function TodoItem(props) {
   return (
     <div className="todo-item">
       <input
         type="checkbox"
         checked={props.item.completed}
-        onChange={handleClick}
+        onChange={() => props.handleChange(props.item.id)}
       />
       <p style={props.item.completed ? { color: "red" } : { color: "black" }}>
         {props.item.text}
@@ -19,3 +14,5 @@ export default function TodoItem(props) {
     </div>
   );
 }
+
+export default TodoItem;
